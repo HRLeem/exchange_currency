@@ -1,27 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="./main.css">
-    <title>title</title>
-</head>
-<body>
-    <div class="wrap">
-        <div class="header">
-            <span>
-                exchange_table
-            </span>
-        </div>
-        <div class="container">
-            <div class="input_area">
-                <form name="input_box">
-                    <label for=""
-                </form>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="./main.js"></script>
+        <link rel="stylesheet" href="./main.css">
+        <title>환율 계산 테이블</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="header">
+                <span>
+                    환율 계산기
+                </span>
+            </div>
+            <div class="container">
+                <div class="input_area">
+                    <form name="input_box">
+                        <div class="label_box">
+                            <label for="standard">
+                                기준 환율
+                            </label>
+                            <input
+                                type="text"
+                                id="standard"
+                                placeholder="숫자를 입력해주세요"
+                                onkeyup="removeChar(event);inputNumberFormat(this);"
+                                onkeydown="inputNumberFormat(this);">
+                        </div>
+                        <div class="label_box">
+                            <label for="spread">
+                                스프레드
+                            </label>
+                            <input type="number" id="spread" step="0.01" class="small">
+                        </div>
+                        <div class="label_box">
+                            <label for="pre_rate">우대율</label>
+                            <select id="pre_rate" style="width: 60px; height: 28px;">
+                                <option value="false" selected>선택해주세요</option>
+                                <option value="95">95%</option>
+                                <option value="90">90%</option>
+                                <option value="85">85%</option>
+                                <option value="80">80%</option>
+                                <option value="75">75%</option>
+                                <option value="direct">직접입력</option>
+                            </select>
+                            <input type="number" id="pre_rate_direct" class="small">
+                        </div>
+                        <div class="label_box">
+                            <label for="money">
+                                금액
+                            </label>
+                            <input
+                                type="text"
+                                id="money"
+                                placeholder="숫자를 입력해주세요"
+                                onkeyup="removeChar(event);inputNumberFormat(this);"
+                                onkeydown="inputNumberFormat(this);">
+                        </div>
+                        <button id="submit">계산</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
